@@ -1,0 +1,536 @@
+/* =========================================
+   1. VARIABLES DE COLOR
+   ========================================= */
+:root {
+  --color-rojo-fan: #ce1126;
+  --color-rojo-hover: #a80e1f;
+  --color-fondo-base: #f8f9fa;
+  --color-fondo-tarjetas: #ffffff;
+  --color-fondo-hero: #f8f9fa;
+  --color-texto-principal: #2b2b2b;
+  --color-texto-suave: #6c757d;
+  --color-borde: #e9ecef;
+  --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --sombra-hover: 0 12px 20px rgba(0, 0, 0, 0.1);
+  --transicion-suave: all 0.3s ease;
+}
+
+body.dark-mode {
+  --color-fondo-base: #121212;
+  --color-fondo-tarjetas: #1e1e1e;
+  --color-fondo-hero: #1e1e1e;
+  --color-texto-principal: #e0e0e0;
+  --color-texto-suave: #a0a0a0;
+  --color-borde: #333333;
+  --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --sombra-hover: 0 12px 25px rgba(206, 17, 38, 0.15);
+}
+
+/* =========================================
+   2. RESETEO BÁSICO
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   3. REGLAS GENERALES DEL CUERPO
+   ========================================= */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-fondo-base);
+  color: var(--color-texto-principal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   4. TIPOGRAFÍA Y TÍTULOS
+   ========================================= */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-texto-principal);
+  margin-bottom: 1rem;
+}
+
+/* =========================================
+   5. BOTONES Y ENLACES
+   ========================================= */
+a {
+  text-decoration: none;
+  color: var(--color-rojo-fan);
+  transition: var(--transicion-suave);
+}
+
+.btn-principal {
+  display: inline-block;
+  background-color: var(--color-rojo-fan);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+
+.btn-principal:hover {
+  background-color: var(--color-rojo-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-dark-mode {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 20px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icono-luna { display: none; }
+.icono-sol { display: block; }
+body.dark-mode .icono-luna { display: block; }
+body.dark-mode .icono-sol { display: none; }
+
+/* =========================================
+   6. CONTENEDOR GENERAL
+   ========================================= */
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================================
+   7. ENCABEZADO (NAVBAR)
+   ========================================= */
+.encabezado {
+  background-color: var(--color-fondo-tarjetas);
+  padding: 15px 0;
+  box-shadow: var(--sombra-suave);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+}
+
+.logo span {
+  color: var(--color-rojo-fan);
+}
+
+.navegacion {
+  display: flex;
+  align-items: center;
+}
+
+.navegacion a {
+  color: var(--color-texto-principal);
+  margin-left: 30px;
+  font-weight: 500;
+}
+
+.navegacion a:hover {
+  color: var(--color-rojo-fan);
+}
+
+/* =========================================
+   8. HERO SECTION
+   ========================================= */
+.hero {
+  background-color: var(--color-fondo-hero); 
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-contenido {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   9. SECCIÓN CATÁLOGO Y GRID
+   ========================================= */
+.seccion-catalogo {
+  padding: 80px 20px;
+}
+
+.cont-columna {
+  flex-direction: column;
+  text-align: center;
+}
+
+.seccion-catalogo h2 {
+  font-size: 2.5rem;
+  color: var(--color-rojo-fan);
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  color: var(--color-texto-suave);
+  margin-bottom: 50px;
+}
+
+.grid-catalogo {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* =========================================
+   10. TARJETAS DE PRODUCTO E IMÁGENES
+   ========================================= */
+.tarjeta-producto {
+  background-color: var(--color-fondo-tarjetas);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicion-suave);
+  text-align: left;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-hover);
+}
+
+.contenedor-imagen {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background-color: var(--color-fondo-tarjetas);
+}
+
+.imagen-producto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+}
+
+.imagen-producto.trasera {
+  opacity: 0;
+}
+
+.tarjeta-producto:hover .imagen-producto.trasera {
+  opacity: 1;
+}
+
+.info-producto {
+  padding: 20px;
+}
+
+.info-producto h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.precio {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-rojo-fan);
+  margin-bottom: 15px;
+}
+
+.btn-secundario {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid var(--color-rojo-fan);
+  color: var(--color-rojo-fan);
+  border-radius: 6px;
+  font-weight: 600;
+  transition: var(--transicion-suave);
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-rojo-fan);
+  color: #ffffff;
+}
+
+/* =========================================
+   11. SECCIÓN COMUNIDAD (CARRUSEL INFINITO)
+   ========================================= */
+.seccion-comunidad {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.carrusel-infinito {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 30px 0;
+}
+
+.carrusel-infinito::before,
+.carrusel-infinito::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carrusel-infinito::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-fondo-base) 0%, transparent 100%);
+}
+
+.carrusel-infinito::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-fondo-base) 0%, transparent 100%);
+}
+
+.carrusel-track {
+  display: inline-flex;
+  gap: 20px;
+  animation: scroll-infinito 20s linear infinite;
+}
+
+.carrusel-infinito:hover .carrusel-track {
+  animation-play-state: paused;
+}
+
+.foto-carrusel {
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.foto-carrusel:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 25px rgba(206, 17, 38, 0.25);
+  border-color: var(--color-rojo-fan);
+  z-index: 10;
+}
+
+@keyframes scroll-infinito {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 10px)); }
+}
+
+/* =========================================
+   12. SECCIÓN DE CONTACTO Y FORMULARIO
+   ========================================= */
+.seccion-contacto {
+  padding: 80px 20px;
+  background-color: var(--color-fondo-tarjetas);
+}
+
+.seccion-contacto h2 {
+  font-size: 2.5rem;
+  color: var(--color-rojo-fan);
+  margin-bottom: 10px;
+}
+
+.formulario-contacto {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: left;
+}
+
+.grupo-input {
+  margin-bottom: 20px;
+}
+
+.grupo-input label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--color-texto-principal);
+}
+
+.grupo-input input,
+.grupo-input select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--color-fondo-base);
+  transition: var(--transicion-suave);
+  color: var(--color-texto-principal);
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus {
+  outline: none;
+  border-color: var(--color-rojo-fan);
+  box-shadow: 0 0 0 3px rgba(206, 17, 38, 0.1);
+}
+
+.btn-formulario {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+/* =========================================
+   13. BOTÓN FLOTANTE WHATSAPP (SVG)
+   ========================================= */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.1);
+}
+
+.btn-whatsapp svg {
+  width: 100%;
+  height: 100%;
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+/* =========================================
+   14. DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   ========================================= */
+@media (max-width: 768px) {
+  
+  .contenedor {
+    padding: 0 15px;
+  }
+
+  .encabezado .contenedor {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navegacion {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .navegacion a {
+    margin-left: 0;
+    font-size: 0.95rem;
+  }
+
+  .btn-dark-mode {
+    margin-left: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  .seccion-catalogo, 
+  .seccion-comunidad, 
+  .seccion-contacto {
+    padding: 50px 15px;
+  }
+
+  .seccion-catalogo h2, 
+  .seccion-comunidad h2, 
+  .seccion-contacto h2 {
+    font-size: 2rem;
+  }
+
+  .grid-catalogo {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .foto-carrusel {
+    width: 220px;
+    height: 220px;
+  }
+
+  .btn-whatsapp {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px;
+  }
+}
