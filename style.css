@@ -105,9 +105,9 @@ a {
 }
 
 .icono-luna { display: none; }
-.icono-sol { display: block; }
+.icono-sol  { display: block; }
 body.dark-mode .icono-luna { display: block; }
-body.dark-mode .icono-sol { display: none; }
+body.dark-mode .icono-sol  { display: none; }
 
 /* =========================================
    6. CONTENEDOR GENERAL
@@ -145,6 +145,7 @@ body.dark-mode .icono-sol { display: none; }
   color: var(--color-rojo-fan);
 }
 
+/* Nav escritorio */
 .navegacion {
   display: flex;
   align-items: center;
@@ -160,11 +161,81 @@ body.dark-mode .icono-sol { display: none; }
   color: var(--color-rojo-fan);
 }
 
+/* Botón hamburguesa — oculto en escritorio */
+.btn-hamburguesa {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: 10px;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1100;
+}
+
+.btn-hamburguesa span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-texto-principal);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación X al abrir */
+.btn-hamburguesa[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.btn-hamburguesa[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.btn-hamburguesa[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menú móvil */
+.menu-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  background-color: var(--color-fondo-tarjetas);
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.menu-mobile.activo {
+  max-height: 400px;
+  padding: 15px 20px 20px;
+}
+
+.menu-mobile a {
+  color: var(--color-texto-principal);
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 1rem;
+}
+
+.menu-mobile a:last-of-type {
+  border-bottom: none;
+}
+
+.menu-mobile a:hover {
+  color: var(--color-rojo-fan);
+}
+
 /* =========================================
    8. HERO SECTION
    ========================================= */
 .hero {
-  background-color: var(--color-fondo-hero); 
+  background-color: var(--color-fondo-hero);
+  background-image:
+    radial-gradient(ellipse at 20% 60%, rgba(206, 17, 38, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(206, 17, 38, 0.05) 0%, transparent 55%);
   height: 70vh;
   display: flex;
   align-items: center;
@@ -172,10 +243,27 @@ body.dark-mode .icono-sol { display: none; }
   text-align: center;
   padding: 0 20px;
   transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalle decorativo detrás del texto */
+.hero::before {
+  content: "👹";
+  position: absolute;
+  font-size: 22rem;
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hero-contenido {
   max-width: 600px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -362,7 +450,7 @@ body.dark-mode .icono-sol { display: none; }
 }
 
 @keyframes scroll-infinito {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(calc(-50% - 10px)); }
 }
 
@@ -425,6 +513,44 @@ body.dark-mode .icono-sol { display: none; }
   margin-top: 10px;
 }
 
+.btn-formulario:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mensaje de éxito */
+#mensaje-exito {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 500px;
+  margin: 16px auto 0;
+  padding: 14px 18px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  color: #155724;
+  font-weight: 500;
+  animation: fadeInUp 0.4s ease;
+}
+
+body.dark-mode #mensaje-exito {
+  background-color: #1a3a22;
+  border-color: #2d5a37;
+  color: #75c990;
+}
+
+.exito-icono {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* =========================================
    13. BOTÓN FLOTANTE WHATSAPP (SVG)
    ========================================= */
@@ -459,38 +585,182 @@ body.dark-mode .icono-sol { display: none; }
 }
 
 /* =========================================
-   14. DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   14. FOOTER
+   ========================================= */
+.footer {
+  background-color: #1a1a1a;
+  color: #aaaaaa;
+  padding: 50px 20px 30px;
+}
+
+body.dark-mode .footer {
+  background-color: #0a0a0a;
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.footer-marca .logo-footer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-marca .logo-footer span {
+  color: var(--color-rojo-fan);
+}
+
+.footer-marca p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 260px;
+}
+
+.footer-redes {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.footer-redes a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #2e2e2e;
+  border-radius: 50%;
+  color: #aaaaaa;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-redes a:hover {
+  background-color: var(--color-rojo-fan);
+  color: #ffffff;
+}
+
+.footer-links h4,
+.footer-contacto h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links ul li a {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  color: var(--color-rojo-fan);
+}
+
+.footer-contacto address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.footer-contacto address a {
+  color: #aaaaaa;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-contacto address a:hover {
+  color: var(--color-rojo-fan);
+}
+
+.footer-inferior {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.82rem;
+}
+
+.footer-inferior p {
+  color: #666;
+}
+
+.footer-inferior a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-inferior a:hover {
+  color: var(--color-rojo-fan);
+}
+
+/* =========================================
+   15. ANIMACIÓN FADE-IN (SCROLL)
+   ========================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   16. DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
    ========================================= */
 @media (max-width: 768px) {
-  
-  .contenedor {
-    padding: 0 15px;
+
+  /* Navbar: mostrar hamburguesa, ocultar nav normal */
+  .navegacion {
+    display: none;
+  }
+
+  .btn-hamburguesa {
+    display: flex;
+  }
+
+  .menu-mobile {
+    display: flex;
   }
 
   .encabezado .contenedor {
-    flex-direction: column;
-    gap: 15px;
+    padding: 0 15px;
   }
 
-  .navegacion {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .navegacion a {
-    margin-left: 0;
-    font-size: 0.95rem;
-  }
-
-  .btn-dark-mode {
-    margin-left: 0;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
+  /* Hero */
   .hero {
     height: auto;
     padding: 80px 20px;
@@ -505,32 +775,47 @@ body.dark-mode .icono-sol { display: none; }
     margin-bottom: 25px;
   }
 
-  .seccion-catalogo, 
-  .seccion-comunidad, 
+  /* Secciones generales */
+  .seccion-catalogo,
+  .seccion-comunidad,
   .seccion-contacto {
     padding: 50px 15px;
   }
 
-  .seccion-catalogo h2, 
-  .seccion-comunidad h2, 
+  .seccion-catalogo h2,
+  .seccion-comunidad h2,
   .seccion-contacto h2 {
     font-size: 2rem;
   }
 
+  /* Grid */
   .grid-catalogo {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 
+  /* Carrusel */
   .foto-carrusel {
     width: 220px;
     height: 220px;
   }
 
+  /* WhatsApp */
   .btn-whatsapp {
     width: 50px;
     height: 50px;
     bottom: 20px;
     right: 20px;
     padding: 12px;
+  }
+
+  /* Footer responsivo */
+  .footer-contenido {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-inferior {
+    flex-direction: column;
+    text-align: center;
   }
 }

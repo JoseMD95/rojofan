@@ -4,31 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RojoFan | Pasión en cada diseño</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ── ENCABEZADO ─────────────────────────── -->
     <header class="encabezado">
         <div class="contenedor">
             <a href="#" class="logo">Rojo<span>Fan</span></a>
-            <nav class="navegacion">
+
+            <!-- Nav escritorio -->
+            <nav class="navegacion" aria-label="Menú principal">
                 <a href="#inicio">Inicio</a>
                 <a href="#catalogo">Catálogo</a>
                 <a href="#comunidad">Comunidad</a>
                 <a href="#contacto">Contacto</a>
-                <button id="dark-mode-toggle" class="btn-dark-mode">
-                    <span class="icono-sol">☀️</span>
-                    <span class="icono-luna">🌙</span>
+                <button
+                    id="dark-mode-toggle"
+                    class="btn-dark-mode"
+                    aria-label="Activar modo oscuro">
+                    <span class="icono-sol" aria-hidden="true">☀️</span>
+                    <span class="icono-luna" aria-hidden="true">🌙</span>
                 </button>
             </nav>
+
+            <!-- Botón hamburguesa (móvil) -->
+            <button
+                id="btn-hamburguesa"
+                class="btn-hamburguesa"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+
+        <!-- Menú desplegable móvil -->
+        <nav id="menu-mobile" class="menu-mobile" aria-label="Menú móvil">
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#comunidad">Comunidad</a>
+            <a href="#contacto">Contacto</a>
+            <button
+                id="dark-mode-toggle-mobile"
+                class="btn-dark-mode"
+                aria-label="Activar modo oscuro"
+                style="margin: 12px 0 4px; align-self: flex-start;">
+                <span class="icono-sol" aria-hidden="true">☀️</span>
+                <span class="icono-luna" aria-hidden="true">🌙</span>
+            </button>
+        </nav>
     </header>
 
+    <!-- ── HERO ───────────────────────────────── -->
     <section id="inicio" class="hero">
         <div class="hero-contenido">
             <h1>Lleva la pasión en la piel.</h1>
@@ -37,17 +72,18 @@
         </div>
     </section>
 
+    <!-- ── CATÁLOGO ───────────────────────────── -->
     <section id="catalogo" class="seccion-catalogo">
         <div class="contenedor cont-columna">
             <h2>Colección RojoFan</h2>
             <p class="subtitulo">Pasa el mouse sobre el diseño para ver la espalda.</p>
-            
+
             <div class="grid-catalogo">
-                
+
                 <article class="tarjeta-producto">
                     <div class="contenedor-imagen">
-                        <img src="imagenes/Playera1.webp" alt="Playera Diablo Mayor Vista Frontal" class="imagen-producto frontal" loading="lazy">
-                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Diablo Mayor Vista Trasera" class="imagen-producto trasera" loading="lazy">
+                        <img src="imagenes/Playera1.webp" alt="Playera Diablo Mayor – vista frontal" class="imagen-producto frontal" loading="lazy">
+                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Diablo Mayor – vista trasera" class="imagen-producto trasera" loading="lazy">
                     </div>
                     <div class="info-producto">
                         <h3>Playera "Diablo Mayor"</h3>
@@ -58,8 +94,8 @@
 
                 <article class="tarjeta-producto">
                     <div class="contenedor-imagen">
-                        <img src="imagenes/Playera2.webp" alt="Playera Bombonera Vista Frontal" class="imagen-producto frontal" loading="lazy">
-                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Bombonera Vista Trasera" class="imagen-producto trasera" loading="lazy">
+                        <img src="imagenes/Playera2.webp" alt="Playera Bombonera – vista frontal" class="imagen-producto frontal" loading="lazy">
+                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Bombonera – vista trasera" class="imagen-producto trasera" loading="lazy">
                     </div>
                     <div class="info-producto">
                         <h3>Playera "Bombonera"</h3>
@@ -70,8 +106,8 @@
 
                 <article class="tarjeta-producto">
                     <div class="contenedor-imagen">
-                        <img src="imagenes/Playera3.webp" alt="Playera Escudo Retro Vista Frontal" class="imagen-producto frontal" loading="lazy">
-                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Escudo Retro Vista Trasera" class="imagen-producto trasera" loading="lazy">
+                        <img src="imagenes/Playera3.webp" alt="Playera Escudo Retro – vista frontal" class="imagen-producto frontal" loading="lazy">
+                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Escudo Retro – vista trasera" class="imagen-producto trasera" loading="lazy">
                     </div>
                     <div class="info-producto">
                         <h3>Playera "Escudo Retro"</h3>
@@ -82,8 +118,8 @@
 
                 <article class="tarjeta-producto">
                     <div class="contenedor-imagen">
-                        <img src="imagenes/Playera4.webp" alt="Playera El Infierno Vista Frontal" class="imagen-producto frontal" loading="lazy">
-                        <img src="imagenes/PaulinhoRF.webp" alt="Playera El Infierno Vista Trasera" class="imagen-producto trasera" loading="lazy">
+                        <img src="imagenes/Playera4.webp" alt="Playera El Infierno – vista frontal" class="imagen-producto frontal" loading="lazy">
+                        <img src="imagenes/PaulinhoRF.webp" alt="Playera El Infierno – vista trasera" class="imagen-producto trasera" loading="lazy">
                     </div>
                     <div class="info-producto">
                         <h3>Playera "El Infierno"</h3>
@@ -94,8 +130,8 @@
 
                 <article class="tarjeta-producto">
                     <div class="contenedor-imagen">
-                        <img src="imagenes/Playera1.webp" alt="Playera Diablos Rojos Vista Frontal" class="imagen-producto frontal" loading="lazy">
-                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Diablos Rojos Vista Trasera" class="imagen-producto trasera" loading="lazy">
+                        <img src="imagenes/Playera1.webp" alt="Playera Diablos Rojos – vista frontal" class="imagen-producto frontal" loading="lazy">
+                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Diablos Rojos – vista trasera" class="imagen-producto trasera" loading="lazy">
                     </div>
                     <div class="info-producto">
                         <h3>Playera "Diablos Rojos"</h3>
@@ -106,8 +142,8 @@
 
                 <article class="tarjeta-producto">
                     <div class="contenedor-imagen">
-                        <img src="imagenes/Playera2.webp" alt="Playera Leyenda Vista Frontal" class="imagen-producto frontal" loading="lazy">
-                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Leyenda Vista Trasera" class="imagen-producto trasera" loading="lazy">
+                        <img src="imagenes/Playera2.webp" alt="Playera Leyenda – vista frontal" class="imagen-producto frontal" loading="lazy">
+                        <img src="imagenes/PaulinhoRF.webp" alt="Playera Leyenda – vista trasera" class="imagen-producto trasera" loading="lazy">
                     </div>
                     <div class="info-producto">
                         <h3>Playera "Leyenda"</h3>
@@ -120,104 +156,120 @@
         </div>
     </section>
 
+    <!-- ── COMUNIDAD ──────────────────────────── -->
     <section id="comunidad" class="seccion-comunidad">
         <div class="contenedor cont-columna">
             <h2>RojoFans en Acción 👹🔥</h2>
             <p class="subtitulo">La afición más fiel luciendo los colores.</p>
         </div>
-        
-        <div class="carrusel-infinito">
-            <div class="carrusel-track">
-                <img src="imagenes/PaulinhoRF.webp" alt="Aficionado RojoFan 1" class="foto-carrusel">
-                <img src="imagenes/Aficion.webp" alt="Aficionado RojoFan 2" class="foto-carrusel">
-                <img src="imagenes/PaulinhoRF.webp" alt="Aficionado RojoFan 3" class="foto-carrusel">
-                <img src="imagenes/Aficion.webp" alt="Aficionado RojoFan 4" class="foto-carrusel">
-                <img src="imagenes/PaulinhoRF.webp" alt="Aficionado RojoFan 5" class="foto-carrusel">
-                
-                <img src="imagenes/Aficion.webp" alt="Aficionado RojoFan 1" class="foto-carrusel">
-                <img src="imagenes/PaulinhoRF.webp" alt="Aficionado RojoFan 2" class="foto-carrusel">
-                <img src="imagenes/Aficion.webp" alt="Aficionado RojoFan 3" class="foto-carrusel">
-                <img src="imagenes/PaulinhoRF.webp" alt="Aficionado RojoFan 4" class="foto-carrusel">
-                <img src="imagenes/Aficion.webp" alt="Aficionado RojoFan 5" class="foto-carrusel">
-            </div>
+
+        <div class="carrusel-infinito" aria-label="Galería de aficionados RojoFan">
+            <!-- Las imágenes se generan dinámicamente desde script.js -->
+            <div class="carrusel-track" id="carrusel-track"></div>
         </div>
     </section>
 
+    <!-- ── CONTACTO ───────────────────────────── -->
     <section id="contacto" class="seccion-contacto">
         <div class="contenedor cont-columna">
             <h2>Haz tu Pedido</h2>
             <p class="subtitulo">Déjanos tus datos o escríbenos directo por WhatsApp para coordinar tu entrega.</p>
-            
-            <form id="form-pedido" class="formulario-contacto">
+
+            <form id="form-pedido" class="formulario-contacto" novalidate>
                 <div class="grupo-input">
                     <label for="nombre">Nombre completo</label>
-                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ej. Juan Pérez"
+                        autocomplete="name"
+                        required>
                 </div>
-                
+
                 <div class="grupo-input">
                     <label for="telefono">Teléfono (WhatsApp)</label>
-                    <input type="tel" id="telefono" placeholder="Tu número" required>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Tu número a 10 dígitos"
+                        autocomplete="tel"
+                        required>
                 </div>
-                
+
                 <div class="grupo-input">
                     <label for="modelo">¿Qué diseño te interesa?</label>
-                    <select id="modelo" required>
-                        <option value="" disabled selected>Selecciona una playera...</option>
-                        <option value="diablo-mayor">Diablo Mayor</option>
-                        <option value="bombonera">Bombonera</option>
-                        <option value="escudo-retro">Escudo Retro</option>
-                        <option value="el-infierno">El Infierno</option>
-                        <option value="diablos-rojos">Diablos Rojos</option>
-                        <option value="leyenda">Leyenda</option>
+                    <select id="modelo" name="modelo" aria-label="Selecciona el modelo de playera" required>
+                        <option value="" disabled selected>Selecciona una playera…</option>
+                        <option value="diablo-mayor">Diablo Mayor — $299 MXN</option>
+                        <option value="bombonera">Bombonera — $299 MXN</option>
+                        <option value="escudo-retro">Escudo Retro — $349 MXN</option>
+                        <option value="el-infierno">El Infierno — $299 MXN</option>
+                        <option value="diablos-rojos">Diablos Rojos — $349 MXN</option>
+                        <option value="leyenda">Leyenda — $299 MXN</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-principal btn-formulario">Enviar Pedido por WhatsApp</button>
+                <button type="submit" class="btn-principal btn-formulario">
+                    Enviar Pedido por WhatsApp
+                </button>
             </form>
         </div>
     </section>
 
-    <a href="https://wa.me/521234567890?text=Hola%20RojoFan,%20me%20interesa%20una%20playera" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <!-- ── FOOTER ─────────────────────────────── -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-marca">
+                <a href="#" class="logo-footer">Rojo<span>Fan</span></a>
+                <p>Diseños exclusivos para los verdaderos aficionados. Creados con pasión, entregados con orgullo.</p>
+                <div class="footer-redes" aria-label="Redes sociales">
+                    <a href="#" aria-label="Instagram de RojoFan">IG</a>
+                    <a href="#" aria-label="Facebook de RojoFan">FB</a>
+                    <a href="#" aria-label="TikTok de RojoFan">TK</a>
+                    <a href="https://wa.me/527225889112" aria-label="WhatsApp de RojoFan" target="_blank" rel="noopener noreferrer">WA</a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegar</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#comunidad">Comunidad</a></li>
+                    <li><a href="#contacto">Hacer pedido</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <address>
+                    <a href="https://wa.me/527225889112" target="_blank" rel="noopener noreferrer">📱 722 588 9112</a>
+                    <a href="/cdn-cgi/l/email-protection#bfd7d0d3deffcdd0d5d0d9ded191d2c7">✉️ <span class="__cf_email__" data-cfemail="d9b1b6b5b899abb6b3b6bfb8b7f7b4a1">[email&#160;protected]</span></a>
+                    <span>📍 Estado de México, MX</span>
+                </address>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <p>© 2025 RojoFan. Todos los derechos reservados.</p>
+            <p>Hecho con ❤️ y 🔥 por fans, para fans.</p>
+        </div>
+    </footer>
+
+    <!-- ── BOTÓN FLOTANTE WHATSAPP ────────────── -->
+    <a
+        id="btn-whatsapp"
+        href="#"
+        class="btn-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3.2 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-117zm-157 369.3h-.1c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-37.9-3.2-5.3-.3-8.2 2.4-11 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
     </a>
 
-    <script>
-        const formulario = document.getElementById('form-pedido');
-
-        formulario.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-            const modeloSelect = document.getElementById('modelo');
-            const modeloTexto = modeloSelect.options[modeloSelect.selectedIndex].text;
-
-            const numeroRojoFan = "527220000000"; // Sustituye por tu número
-
-            const mensaje = `¡Hola RojoFan! 👹🔥\n\nSoy *${nombre}*.\nMe interesa encargar la playera modelo: *${modeloTexto}*.\n\nMi teléfono de contacto es: ${telefono}.\n\n¡Quedo a la espera para coordinar la entrega!`;
-            const mensajeCodificado = encodeURIComponent(mensaje);
-            const urlWhatsApp = `https://wa.me/${numeroRojoFan}?text=${mensajeCodificado}`;
-
-            window.open(urlWhatsApp, '_blank');
-        });
-
-        const btnToggle = document.getElementById('dark-mode-toggle');
-        const body = document.body;
-
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-        }
-
-        btnToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
-</body>
-</html>
+    <!-- ── SCRIPTS ────────────────────────────── -->
+    <script src="script.js"></script>
